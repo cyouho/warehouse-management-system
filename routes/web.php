@@ -20,3 +20,5 @@ Route::get('/', function () {
 
 Route::get('/register', [AuthController::class, 'showRegisterPage']);
 Route::get('/login', [AuthController::class, 'showLoginPage']);
+Route::post('/doRegister', [AuthController::class, 'doRegister']);
+Route::post('/doLogin', [AuthController::class, 'doLogin']);
