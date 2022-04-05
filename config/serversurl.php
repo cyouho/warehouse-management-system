@@ -1,6 +1,6 @@
 <?php
 
-define('AUTH_API_DOMAIN', 'localhost');
+define('AUTH_API_DOMAIN', 'http://127.0.0.2');
 define('AUTH_API_PORT', ':9000');
 
 return [
