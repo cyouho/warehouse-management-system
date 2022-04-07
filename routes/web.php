@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +15,12 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::middleware(['check.login'])->group(function () {
+    Route::get('/register', [AuthController::class, 'showRegisterPage'])->withoutMiddleware(['check.login']);
+    Route::get('/login', [AuthController::class, 'showLoginPage'])->withoutMiddleware(['check.login']);
+    Route::post('/doRegister', [AuthController::class, 'doRegister'])->withoutMiddleware(['check.login']);
+    Route::post('/doLogin', [AuthController::class, 'doLogin'])->withoutMiddleware(['check.login']);
+    Route::get('/logout', [AuthController::class, 'doLogout'])->withoutMiddleware(['check.logout']);
 
-Route::get('/register', [AuthController::class, 'showRegisterPage']);
-Route::get('/login', [AuthController::class, 'showLoginPage']);
-Route::post('/doRegister', [AuthController::class, 'doRegister']);
-Route::post('/doLogin', [AuthController::class, 'doLogin']);
+    Route::get('/', [IndexController::class, 'index']);
+});

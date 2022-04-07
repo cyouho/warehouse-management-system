@@ -30,6 +30,7 @@
             @error('email')
             <p class="error-message">{{ $message }}</p>
             @enderror
+            <p class="error-message">{{session('email')}}</p>
         </div>
 
         <div class="form-label-group">
@@ -38,6 +39,7 @@
             @error('password')
             <p class="error-message">{{ $message }}</p>
             @enderror
+            <p class="error-message">{{session('password')}}</p>
         </div>
 
         <div class="checkbox mb-3">
