@@ -70,6 +70,27 @@ class AuthController extends Controller
     public function doLogout()
     {
         $cookie = Cookie::forget('_cyouho');
+        $userCookie = request()->cookie('_cyouho');
+
+        try {
+            $client = new Client();
+            $response = $client->request('POST', $this->_url['logout'], [
+                'header' => [
+                    'Accept' => 'application/json',
+                ],
+                'form_params' => [
+                    'session' => $userCookie,
+                ],
+                'http_errors' => FALSE, // api 会返回自己的错误信息，这些不计入 http 错误
+            ]);
+            $statusCode = $response->getStatusCode();
+            $rsp = $response->getBody()->getContents();
+            $response = json_decode($rsp, TRUE);
+        } catch (ClientException $e) {
+            report($e);
+        }
+
+        $cookie = Cookie::forget('_cyouho');
         return response()->redirectTo('/')->cookie($cookie);
     }
 }
