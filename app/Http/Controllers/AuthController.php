@@ -26,8 +26,38 @@ class AuthController extends Controller
         return view('login');
     }
 
-    public function doRegister()
+    public function doRegister(Request $request)
     {
+        $postData = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:8|max:16',
+        ]);
+
+        try {
+            $client = new Client();
+            $response = $client->request('POST', $this->_url['register'], [
+                'header' => [
+                    'Accept' => 'application/json',
+                ],
+                'form_params' => [
+                    'email' => $postData['email'],
+                    'password' => $postData['password'],
+                ],
+                'http_errors' => FALSE, // api 会返回自己的错误信息，这些不计入 http 错误
+            ]);
+            $statusCode = $response->getStatusCode();
+            $rsp = $response->getBody()->getContents();
+            $response = json_decode($rsp, TRUE);
+        } catch (ClientException $e) {
+            report($e);
+            return back();
+        }
+
+        if ($statusCode === 201) {
+            return response()->redirectTo('/')->cookie('_cyouho', $response['session'], 60);
+        } else {
+            return back()->with('email', 'User aleardy exitsed or something others error occred');
+        }
     }
 
     public function doLogin(Request $request)
@@ -58,8 +88,7 @@ class AuthController extends Controller
         }
 
         if ($statusCode === 200) {
-            $userData = json_decode($rsp, TRUE);
-            return response()->redirectTo('/')->cookie('_cyouho', $userData['session'], 60);
+            return response()->redirectTo('/')->cookie('_cyouho', $response['session'], 60);
         } else if ($response['api_status_code'] === 40401) {
             return back()->with('email', $response['message']);
         } else if ($response['api_status_code'] === 40402) {
