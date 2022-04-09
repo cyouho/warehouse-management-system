@@ -6,6 +6,7 @@
 
 <body>
     @include('global.global_navbar')
+    @include('index.index_contents')
 </body>
 
 </html>
