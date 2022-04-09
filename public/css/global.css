@@ -1,0 +1,16 @@
+.container {
+    max-width: 1320px;
+}
+
+.link-secondary {
+    color: #6c757d;
+}
+
+.link-secondary:hover {
+    color: #454a4f;
+}
+
+.header-title {
+    font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+    font-size: 2.25rem;
+}
