@@ -3,14 +3,16 @@
 }
 
 .link-secondary {
-    color: #6c757d;
+    color: rgb(0, 101, 67);
 }
 
 .link-secondary:hover {
-    color: #454a4f;
+    color: rgb(0, 62, 41);
 }
 
 .header-title {
     font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
     font-size: 2.25rem;
+    color: rgb(0, 101, 67) !important;
+    ;
 }
