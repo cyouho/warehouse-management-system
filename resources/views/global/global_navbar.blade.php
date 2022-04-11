@@ -1,6 +1,6 @@
-<header class="p-3 mb-3 border-bottom">
-    <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+<div class="container">
+    <header class="py-3 border-bottom">
+        <div class="row flex-nowrap justify-content-between align-items-center">
             <div class="col-4 pt-1">
                 <a class="link-secondary" href="#">Home</a>
             </div>
@@ -24,5 +24,12 @@
                 </ul>
             </div>
         </div>
+    </header>
+    <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+            <a class="p-2 link-secondary" href="#">总览</a>
+            <a class="p-2 link-secondary" href="#">link 2</a>
+            <a class="p-2 link-secondary" href="#">link 2</a>
+        </nav>
     </div>
-</header>
+</div>
