@@ -28,8 +28,8 @@
     <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
             <a class="p-2 link-secondary" href="#">总览</a>
-            <a class="p-2 link-secondary" href="#">link 2</a>
-            <a class="p-2 link-secondary" href="#">link 2</a>
+            <a class="p-2 link-secondary" href="#">添加食品</a>
+            <a class="p-2 link-secondary" href="#">link 3</a>
         </nav>
     </div>
 </div>
