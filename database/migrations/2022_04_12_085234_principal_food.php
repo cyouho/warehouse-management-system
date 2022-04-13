@@ -23,6 +23,7 @@ class PrincipalFood extends Migration
             $table->integer('user_id');
             $table->string('food_name');
             $table->integer('amount'); // 数量
+            $table->integer('shelves'); // 货架号
             $table->integer('number_of_plies'); // 货架上第几层
             $table->timestamp('purchase_date'); // 采购时间
             $table->timestamp('expiry_date'); // 过期时间
