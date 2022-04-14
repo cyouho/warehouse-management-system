@@ -18,9 +18,13 @@
 }
 
 .bg-green {
-    background-color: rgb(0, 62, 41);
+    background-color: rgb(109, 146, 134);
 }
 
 .text-green {
-    color: rgb(208, 255, 239);
+    color: rgb(232, 255, 247);
+}
+
+.tabel-green {
+    color: rgb(232, 255, 247) !important;
 }

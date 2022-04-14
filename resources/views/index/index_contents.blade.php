@@ -1,3 +1,68 @@
 <main class="container">
-    <div class="jumbotron p-4 p-md-5 text-green rounded bg-green">123<div>
+    <div class="jumbotron p-4 p-md-5 text-green rounded bg-green">
+        <h2>临期:</h2><br>
+        <table class="table tabel-green">
+            <thead>
+                <tr>
+                    <th>物品名</th>
+                    <th>购入日期</th>
+                    <th>保质期限</th>
+                    <th>临期期限</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                    <td>6</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>过期:</h2><br>
+        <table class="table tabel-green">
+            <thead>
+                <tr>
+                    <th>物品名</th>
+                    <th>购入日期</th>
+                    <th>保质期限</th>
+                    <th>过期天数</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                    <td>45</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="jumbotron p-4 p-md-5 text-green rounded bg-green">
+    </div>
 </main>

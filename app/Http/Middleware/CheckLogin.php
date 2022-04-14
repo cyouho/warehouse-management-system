@@ -57,6 +57,8 @@ class CheckLogin
             'is_login' => TRUE,
         ];
 
+        $request->merge($globalData); // 将 $globalData 穿入控制器中
+
         view()->share('global_data', $globalData);
 
         return $next($request);
