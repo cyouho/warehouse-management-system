@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AddGoodsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,6 @@ Route::middleware(['check.login'])->group(function () {
     Route::get('/logout', [AuthController::class, 'doLogout'])->withoutMiddleware(['check.logout']);
 
     Route::get('/', [IndexController::class, 'index']);
+    Route::get('/addGoods', [AddGoodsController::class, 'index']);
+    Route::post('/addGoodsAction', [AddGoodsController::class, 'addGoodsAction']);
 });
