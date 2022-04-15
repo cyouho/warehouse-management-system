@@ -26,11 +26,6 @@
         </div>
     </header>
     <div class="nav-scroller py-1 mb-2">
-        <nav class="nav d-flex justify-content-between">
-            <a class="p-2 link-secondary" href="/">总览</a>
-            <a class="p-2 link-secondary" href="/addGoods">入库</a>
-            <a class="p-2 link-secondary" href="#">出库</a>
-            <a class="p-2 link-secondary" href="#">库存检索</a>
-        </nav>
+
     </div>
 </div>
