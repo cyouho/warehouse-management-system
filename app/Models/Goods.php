@@ -12,20 +12,67 @@ class Goods extends Model
 
     const PRINCIPAL_FOOD_TABLE = 'principal_food';
     const SUBSIDIARY_FOOD_TABLE = 'subsidiary_food';
-    const DRINK_TABLE = 'drink_food';
+    const DRINK_TABLE = 'drink';
+    const MEDICINE_TABLE = 'medicines';
 
-    public function getNearExpiredFoods(array $columnName = ['*'], array $conditions = [])
-    {
-        $principal = DB::table(self::PRINCIPAL_FOOD_TABLE)
-            ->select($columnName)
-            ->where($conditions);
+    public function getNearExpiredGoods(
+        array $columnName = ['*'],
+        array $conditions = [],
+        array $conditionsForOr = []
+    ) {
+        return $this->selectGoods($columnName, $conditions, $conditionsForOr);
+    }
 
-        $result = DB::table(self::SUBSIDIARY_FOOD_TABLE)
+    public function getExpiredGoods(
+        array $columnName = ['*'],
+        array $conditions = [],
+        array $conditionsForOr = []
+    ) {
+        return $this->selectGoods($columnName, $conditions, $conditionsForOr);
+    }
+
+    public function getSearchGoods(
+        array $columnName = ['*'],
+        array $conditions = [],
+        array $conditionsForOr = []
+    ) {
+        return $this->selectGoods($columnName, $conditions, $conditionsForOr);
+    }
+
+    private function selectGoods(
+        array $columnName = ['*'],
+        array $conditions = [],
+        array $conditionsForOr = []
+    ) {
+        $principalResult = DB::table(self::PRINCIPAL_FOOD_TABLE)
             ->select($columnName)
             ->where($conditions)
-            ->union($principal)
+            ->orWhere($conditionsForOr)
             ->get();
 
-        return $result;
+        $subsidiaryResult = DB::table(self::SUBSIDIARY_FOOD_TABLE)
+            ->select($columnName)
+            ->where($conditions)
+            ->orWhere($conditionsForOr)
+            ->get();
+
+        $drinkResult = DB::table(self::DRINK_TABLE)
+            ->select($columnName)
+            ->where($conditions)
+            ->orWhere($conditionsForOr)
+            ->get();
+
+        $medicineResult = DB::table(self::MEDICINE_TABLE)
+            ->select($columnName)
+            ->where($conditions)
+            ->orWhere($conditionsForOr)
+            ->get();
+
+        return [
+            json_decode($principalResult, TRUE),
+            json_decode($subsidiaryResult, TRUE),
+            json_decode($drinkResult, TRUE),
+            json_decode($medicineResult, TRUE),
+        ];
     }
 }

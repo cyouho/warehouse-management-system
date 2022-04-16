@@ -17,9 +17,9 @@ class Medicines extends Migration
             $table->engine = 'InnoDB';
             $table->id()->unique();
             $table->integer('user_id');
-            $table->integer('medicine_level'); // 药品临期等级
-            $table->string('medicine_name'); // 药品官方名称
-            $table->string('medicine_sub_name'); // 药品自定义名称
+            $table->integer('expiry_level'); // 药品临期等级
+            $table->string('offical_name'); // 药品官方名称
+            $table->string('sub_name'); // 药品自定义名称
             $table->integer('amount'); // 数量
             $table->integer('shelves'); // 货架号
             $table->integer('number_of_plies'); // 货架上第几层

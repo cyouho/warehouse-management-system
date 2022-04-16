@@ -20,3 +20,5 @@
 <link rel="stylesheet" href="css/global.css">
 <!-- Add Goods JS -->
 <script src="js/add_goods.js"></script>
+<!-- Search Goods JS -->
+<script src="js/search_goods.js"></script>
