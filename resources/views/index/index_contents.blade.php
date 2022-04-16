@@ -100,10 +100,13 @@
     <div class="jumbotron p-4 p-md-5 text-green rounded bg-green">
         <h2>检索物品:</h2><br>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" class="form-control" id="search-input" placeholder="Search">
             <div class="input-group-append">
-                <button class="btn btn-green" type="submit">检索</button>
+                <button class="btn btn-green" type="submit" id="search-goods">检索</button>
             </div>
+        </div>
+        <div id="search-goods-result">
+
         </div>
     </div>
 </main>

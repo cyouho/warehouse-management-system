@@ -26,4 +26,5 @@ Route::middleware(['check.login'])->group(function () {
     Route::get('/', [IndexController::class, 'index']);
     Route::get('/addGoods', [AddGoodsController::class, 'index']);
     Route::post('/addGoodsAction', [AddGoodsController::class, 'addGoodsAction']);
+    Route::post('/searchGoodsAjax', [IndexController::class, 'searchGoodsAjax']);
 });

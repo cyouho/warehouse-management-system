@@ -21,9 +21,9 @@ class SubsidiaryFood extends Migration
             $table->engine = 'InnoDB';
             $table->id()->unique();
             $table->integer('user_id');
-            $table->integer('food_level'); // 食品临期等级
-            $table->string('food_name'); // 食品官方名称
-            $table->string('food_sub_name'); // 食品自定义名称
+            $table->integer('expiry_level'); // 食品临期等级
+            $table->string('offical_name'); // 食品官方名称
+            $table->string('sub_name'); // 食品自定义名称
             $table->integer('amount'); // 数量
             $table->integer('shelves'); // 货架号
             $table->integer('number_of_plies'); // 货架上第几层
