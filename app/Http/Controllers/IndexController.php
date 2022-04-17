@@ -19,6 +19,8 @@ class IndexController extends Controller
     {
         $postData = $request->post();
 
+        if ($postData['q'] === '') return FALSE;
+
         $columnName = [
             '*'
         ];

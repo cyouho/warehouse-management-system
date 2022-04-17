@@ -5,6 +5,8 @@ $(document).ready(function () {
     $("#search-goods").click(function () {
         q = $("#search-input").val();
 
-        $("#search-goods-result").load('/searchGoodsAjax', { 'user_id': userId, 'q': q, '_token': token });
+        if (q != '') {
+            $("#search-goods-result").load('/searchGoodsAjax', { 'user_id': userId, 'q': q, '_token': token });
+        }
     });
 });
