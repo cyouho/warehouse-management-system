@@ -48,27 +48,35 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
+                    <label for="sel1">物品类别:</label>
+                    <select class="form-control" id="goodsCategory">
+                        <option id="principal_food" value="principal_food">主食</option>
+                        <option id="subsidiary_food" value="subsidiary_food">副食</option>
+                        <option id="drink" value="drink">饮料</option>
+                        <option id="medicines" value="medicines">药品</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="sel1">物品名:</label>
-                    <select class="form-control" id="sel1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
+                    <select class="form-control" id="goodsName">
+                        @foreach ($indexData['goods_data'] as $value)
+                        <option>{{ $value }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="usr">备注名:</label>
-                    <input type="text" class="form-control" id="usr">
+                    <input type="text" class="form-control" id="subName">
                 </div>
                 <div class="form-group">
                     <label for="usr">数量:</label>
-                    <input type="text" class="form-control" id="usr">
+                    <input type="text" class="form-control" id="amount">
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
-                    <label for="sel1">物品类别:</label>
-                    <select class="form-control" id="sel1">
+                    <label for="sel1">货架号:</label>
+                    <select class="form-control" id="shelves">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -76,8 +84,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="sel1">货架号:</label>
-                    <select class="form-control" id="sel1">
+                    <label for="sel1">货架层:</label>
+                    <select class="form-control" id="numberOfPlies">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -95,7 +103,7 @@
             </div>
         </div>
         <div class="dropdown-divider"></div><br>
-        <button type="submit" class="btn btn-green">入库提交</button>
+        <button type="submit" class="btn btn-green" id="dockSubmit">入库提交</button>
     </div>
     <div class="jumbotron p-4 p-md-5 text-green rounded bg-green">
         <h2>检索物品:</h2><br>
