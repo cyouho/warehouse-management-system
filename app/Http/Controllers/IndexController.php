@@ -10,9 +10,15 @@ class IndexController extends Controller
     public function index(Request $request)
     {
         $middlewareData = $request->input();
-        $viewData = $this->getIndexData($middlewareData['user_id']);
+        $viewData = $this->getIndexData($middlewareData['user_id']); // 获取 临期，过期 物品。
+        $goodsData = $this->getDockGoodsData(); // 获取入库时的物品内容。
 
-        return view('index.index_layer', ['indexData' => $viewData]);
+        return view('index.index_layer', [
+            'indexData' => [
+                $viewData,
+                'goods_data' => $goodsData,
+            ]
+        ]);
     }
 
     public function searchGoodsAjax(Request $request)
@@ -31,13 +37,27 @@ class IndexController extends Controller
         ];
 
         $condistionsForOr = [
-            ['offical_name', 'like', '%' . $postData['q'] . '%']
+            ['offical_name', 'like', '%' . $postData['q'] . '%'],
         ];
 
         $goods = new Goods();
         $viewData = $goods->getSearchGoods($columnName, $conditions, $condistionsForOr);
 
         return view('index.index_search_goods_result', ['search_goods_result' => $viewData]);
+    }
+
+    public function getGoodsAjax(Request $request)
+    {
+        $postData = $request->post();
+        $category = $postData['category'];
+
+        $goods = $this->getDockGoodsData($category);
+
+        return view('index.index_subsidiary_food', [
+            'indexData' => [
+                'goods_data' => $goods,
+            ]
+        ]);
     }
 
     private function getIndexData($userId)
@@ -55,8 +75,17 @@ class IndexController extends Controller
         $expiredResult = $goods->getExpiredGoods();
 
         return [
-            'near_expired_goods' => $nearExpiredResult,
-            'expired_goods' => $expiredResult,
+            'near_expired_goods' => $nearExpiredResult, // 临期物品
+            'expired_goods' => $expiredResult, // 过期物品
         ];
+    }
+
+    private function getDockGoodsData(string $category = 'principal_food')
+    {
+        $dockGoodsData = config('goodscategorys.goods');
+
+        $dockGoods = $dockGoodsData[$category];
+
+        return $dockGoods;
     }
 }
