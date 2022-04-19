@@ -48,7 +48,7 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label for="sel1">物品类别:</label>
+                    <label for="goodsCategory">物品类别:</label>
                     <select class="form-control" id="goodsCategory">
                         <option id="principal_food" value="principal_food">主食</option>
                         <option id="subsidiary_food" value="subsidiary_food">副食</option>
@@ -57,7 +57,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="sel1">物品名:</label>
+                    <label for="goodsName">物品名:</label>
                     <select class="form-control" id="goodsName">
                         @foreach ($indexData['goods_data'] as $value)
                         <option>{{ $value }}</option>
@@ -65,17 +65,25 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="usr">备注名:</label>
+                    <label for="subName">备注名:</label>
                     <input type="text" class="form-control" id="subName">
                 </div>
                 <div class="form-group">
-                    <label for="usr">数量:</label>
-                    <input type="text" class="form-control" id="amount">
+                    <div class="row">
+                        <div class="col">
+                            <label for="amount">数量:</label>
+                            <input type="text" class="form-control" id="amount">
+                        </div>
+                        <div class="col">
+                            <label for="unit">单位:</label>
+                            <input type="text" class="form-control" id="unit">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
-                    <label for="sel1">货架号:</label>
+                    <label for="shelves">货架号:</label>
                     <select class="form-control" id="shelves">
                         <option>1</option>
                         <option>2</option>
@@ -84,7 +92,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="sel1">货架层:</label>
+                    <label for="numberOfPlies">货架层:</label>
                     <select class="form-control" id="numberOfPlies">
                         <option>1</option>
                         <option>2</option>
@@ -93,11 +101,11 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="sel1">购买日:</label>
+                    <label for="purchase-date">购买日:</label>
                     <input type="text" class="form-control" id="purchase-date" name="purchaseDate" placeholder="购买日" onkeydown="return false">
                 </div>
                 <div class="form-group">
-                    <label for="sel1">到期日:</label>
+                    <label for="expiry-date">到期日:</label>
                     <input type="text" class="form-control" id="expiry-date" name="expiryDate" placeholder="到期日" onkeydown="return false">
                 </div>
             </div>

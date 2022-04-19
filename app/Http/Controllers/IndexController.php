@@ -84,6 +84,10 @@ class IndexController extends Controller
     {
         $dockGoodsData = config('goodscategorys.goods');
 
+        if (!in_array($category, array_keys($dockGoodsData))) {
+            $category = 'principal_food';
+        }
+
         $dockGoods = $dockGoodsData[$category];
 
         return $dockGoods;
