@@ -21,6 +21,7 @@ class Drink extends Migration
             $table->string('offical_name'); // 食品官方名称
             $table->string('sub_name'); // 食品自定义名称
             $table->integer('amount'); // 数量
+            $table->string('unit'); // 单位
             $table->integer('shelves'); // 货架号
             $table->integer('number_of_plies'); // 货架上第几层
             $table->timestamp('purchase_date'); // 采购时间
