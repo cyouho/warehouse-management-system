@@ -39,6 +39,11 @@ class Goods extends Model
         return $this->selectGoods($columnName, $conditions, $conditionsForOr);
     }
 
+    public function setGoods(string $goodsCategory, array $setData = [])
+    {
+        return $this->insertGoods($goodsCategory, $setData);
+    }
+
     private function selectGoods(
         array $columnName = ['*'],
         array $conditions = [],
@@ -68,11 +73,19 @@ class Goods extends Model
             ->orWhere($conditionsForOr)
             ->get();
 
-        return [
+        return array_merge(
             json_decode($principalResult, TRUE),
             json_decode($subsidiaryResult, TRUE),
             json_decode($drinkResult, TRUE),
             json_decode($medicineResult, TRUE),
-        ];
+        );
+    }
+
+    private function insertGoods(string $goodsCategory, array $setData = [])
+    {
+        $result = DB::table($goodsCategory)
+            ->insert($setData);
+
+        return $result;
     }
 }

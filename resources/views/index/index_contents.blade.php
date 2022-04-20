@@ -48,13 +48,29 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label for="goodsCategory">物品类别:</label>
-                    <select class="form-control" id="goodsCategory">
-                        <option id="principal_food" value="principal_food">主食</option>
-                        <option id="subsidiary_food" value="subsidiary_food">副食</option>
-                        <option id="drink" value="drink">饮料</option>
-                        <option id="medicines" value="medicines">药品</option>
-                    </select>
+                    <div class="row">
+                        <div class="col">
+                            <label for="goodsCategory">物品类别:</label>
+                            <select class="form-control" id="goodsCategory">
+                                <option id="principal_food" value="principal_food">主食</option>
+                                <option id="subsidiary_food" value="subsidiary_food">副食</option>
+                                <option id="drink" value="drink">饮料</option>
+                                <option id="medicines" value="medicines">药品</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="expiryLevel">临期等级:</label>
+                            <select class="form-control" id="expiryLevel">
+                                <option id="lv1" value="1">1年 ~</option>
+                                <option id="lv2" value="2">6个月 ~ 1年</option>
+                                <option id="lv3" value="3">90天 ~ 6个月</option>
+                                <option id="lv4" value="4">30天 ~ 90天</option>
+                                <option id="lv5" value="5">16天 ~ 30天</option>
+                                <option id="lv6" value="6">~ 15天</option>
+                                <option id="others" value="7">其他</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="goodsName">物品名:</label>
@@ -98,15 +114,16 @@
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
+                        <option>5</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="purchase-date">购买日:</label>
-                    <input type="text" class="form-control" id="purchase-date" name="purchaseDate" placeholder="购买日" onkeydown="return false">
+                    <input type="text" class="form-control" id="purchaseDate" name="purchaseDate" placeholder="购买日" onkeydown="return false">
                 </div>
                 <div class="form-group">
                     <label for="expiry-date">到期日:</label>
-                    <input type="text" class="form-control" id="expiry-date" name="expiryDate" placeholder="到期日" onkeydown="return false">
+                    <input type="text" class="form-control" id="expiryDate" name="expiryDate" placeholder="到期日" onkeydown="return false">
                 </div>
             </div>
         </div>
