@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Goods;
+use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
+    private $_goods_category_keys = [];
+
+    public function __construct()
+    {
+        $this->_goods_category_keys = array_keys(config('goodscategorys.goods_category'));
+    }
+
     public function index(Request $request)
     {
         $middlewareData = $request->input();
@@ -28,7 +36,12 @@ class IndexController extends Controller
         if ($postData['q'] === '') return FALSE;
 
         $columnName = [
-            '*'
+            'offical_name',
+            'sub_name',
+            'amount',
+            'unit',
+            DB::raw('DATE_FORMAT(purchase_date, "%Y-%m-%d") as purchase_date'),
+            DB::raw('DATE_FORMAT(expiry_date, "%Y-%m-%d") as expiry_date'),
         ];
 
         $conditions = [
@@ -58,6 +71,35 @@ class IndexController extends Controller
                 'goods_data' => $goods,
             ]
         ]);
+    }
+
+    public function setGoodsAjax(Request $request)
+    {
+        $postData = $request->post();
+        $userId = $request->input('user_id');
+        $goodsCategory = $request->input('goods_category');
+
+        if (!in_array($goodsCategory, $this->_goods_category_keys)) {
+            return FALSE;
+        }
+
+        $setData = [
+            'user_id' => $userId,
+            'expiry_level' => $postData['expiry_level'], // 临期等级
+            'offical_name' => $postData['goods_name'],
+            'sub_name' => $postData['sub_name'],
+            'amount' => $postData['amount'], // 数量
+            'unit' => $postData['unit'],
+            'shelves' => $postData['shelves'],
+            'number_of_plies' => $postData['number_of_plies'],
+            'purchase_date' => $postData['purchase_date'],
+            'expiry_date' => $postData['expiry_date'],
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ];
+
+        $goods = new Goods();
+        $result = $goods->setGoods($goodsCategory, $setData);
     }
 
     private function getIndexData($userId)
