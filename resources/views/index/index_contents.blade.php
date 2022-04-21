@@ -67,7 +67,6 @@
                                 <option id="lv4" value="4">30天 ~ 90天</option>
                                 <option id="lv5" value="5">16天 ~ 30天</option>
                                 <option id="lv6" value="6">~ 15天</option>
-                                <option id="others" value="7">其他</option>
                             </select>
                         </div>
                     </div>

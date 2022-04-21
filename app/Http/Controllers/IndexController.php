@@ -36,12 +36,14 @@ class IndexController extends Controller
         if ($postData['q'] === '') return FALSE;
 
         $columnName = [
+            'expiry_level',
             'offical_name',
             'sub_name',
             'amount',
             'unit',
-            DB::raw('DATE_FORMAT(purchase_date, "%Y-%m-%d") as purchase_date'),
-            DB::raw('DATE_FORMAT(expiry_date, "%Y-%m-%d") as expiry_date'),
+            DB::raw('DATE_FORMAT(purchase_date, "%Y-%m-%d") as purchase_date'), // 'purchase_date'
+            DB::raw('DATE_FORMAT(expiry_date, "%Y-%m-%d") as expiry_date'), // 'expiry_date'
+            DB::raw('datediff(date_format(expiry_date, "%Y-%m-%d"), date_format(now(), "%Y-%m-%d")) as expiry_day'), // 'expiry_day'
         ];
 
         $conditions = [
@@ -56,7 +58,12 @@ class IndexController extends Controller
         $goods = new Goods();
         $viewData = $goods->getSearchGoods($columnName, $conditions, $condistionsForOr);
 
-        return view('index.index_search_goods_result', ['search_goods_result' => $viewData]);
+        return view('index.index_search_goods_result', [
+            'search_goods_result' => [
+                'viewData' => $viewData,
+                'expiry_level_days' => config('goodscategorys.expiry_level'),
+            ]
+        ]);
     }
 
     public function getGoodsAjax(Request $request)
@@ -83,6 +90,15 @@ class IndexController extends Controller
             return FALSE;
         }
 
+        // 生成临期当天日期
+        $expiredLevelForDate = config('goodscategorys.expiry_level'); // 不同临期等级对应天数
+        $expiredDate = date(
+            'Y-m-d',
+            strtotime(
+                $postData['expiry_date'] . '-' . $expiredLevelForDate[$postData['expiry_level']] . 'day'
+            )
+        );
+
         $setData = [
             'user_id' => $userId,
             'expiry_level' => $postData['expiry_level'], // 临期等级
@@ -93,6 +109,7 @@ class IndexController extends Controller
             'shelves' => $postData['shelves'],
             'number_of_plies' => $postData['number_of_plies'],
             'purchase_date' => $postData['purchase_date'],
+            'expired_date' => $expiredDate,
             'expiry_date' => $postData['expiry_date'],
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),

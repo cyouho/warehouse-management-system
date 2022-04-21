@@ -6,6 +6,15 @@ return [
         'drink' => '饮料',
         'medicines' => '药品',
     ],
+    'expiry_level' => [
+        1 => 45, // expiry level 1 的临期期限是 45 天，以下类推。
+        2 => 20,
+        3 => 15,
+        4 => 10,
+        5 => 5,
+        6 => 2,
+        7 => -999999,
+    ],
     'goods' => [
         'principal_food' => [
             'rice' => '大米',

@@ -29,6 +29,7 @@ class SubsidiaryFood extends Migration
             $table->integer('shelves'); // 货架号
             $table->integer('number_of_plies'); // 货架上第几层
             $table->timestamp('purchase_date'); // 采购时间
+            $table->timestamp('expired_date')->nullable(); // 临期日期
             $table->timestamp('expiry_date'); // 过期时间
             $table->timestamps();
         });
