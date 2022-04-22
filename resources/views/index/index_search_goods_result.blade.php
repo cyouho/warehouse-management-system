@@ -7,7 +7,7 @@
             <th>单位</th>
             <th>购入日期</th>
             <th>保质期限</th>
-            <th>临期天数/天</th>
+            <th>临过期天数/天</th>
         </tr>
     </thead>
     <tbody>
@@ -20,11 +20,11 @@
             <td>{{ isset($value['unit']) ? $value['unit'] : NULL}}</td>
             <td>{{ isset($value['purchase_date']) ? $value['purchase_date'] : NULL}}</td>
             <td>{{ isset($value['expiry_date']) ? $value['expiry_date'] : NULL}}</td>
-            @if ($value['expiry_day'] > 0)
-            <td>{{ $value['expiry_day'] < $search_goods_result['expiry_level_days'][$value['expiry_level']] ? $value['expiry_day'] : NULL}}</td>
-            @else
-            <td>{{ $value['expiry_day'] }} ( 过期 )</td>
-            @endif
+            @if ($value['expiry_day'] > 0 && ($value['expiry_day'] < $search_goods_result['expiry_level_days'][$value['expiry_level']])) <td>{{ $value['expiry_day'] }}&nbsp;&nbsp;<span class="badge badge-warning">已临期</span></td>
+                @elseif ($value['expiry_day'] <= 0) <td>{{ abs($value['expiry_day']) }}&nbsp;&nbsp;<span class="badge badge-danger">已过期</span></td>
+                    @else
+                    <td>{{ NULL }}</td>
+                    @endif
         </tr>
         @endif
         @endforeach

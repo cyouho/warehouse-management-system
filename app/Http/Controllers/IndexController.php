@@ -117,6 +117,8 @@ class IndexController extends Controller
 
         $goods = new Goods();
         $result = $goods->setGoods($goodsCategory, $setData);
+
+        return response()->json($result);
     }
 
     private function getIndexData($userId)

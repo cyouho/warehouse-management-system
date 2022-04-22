@@ -11,6 +11,8 @@
 <body>
     @include('global.global_navbar')
     @include('index.index_contents')
+
+    @include('global.global_footer')
 </body>
 
 </html>
