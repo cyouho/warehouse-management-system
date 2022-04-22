@@ -54,7 +54,11 @@ $(document).ready(function () {
                 "expiry_date": expiryDate,
             },
             success: function (data) {
-
+                if (data) {
+                    alert('添加物品成功！');
+                } else {
+                    alert('添加物品失败！');
+                }
             },
         });
     });

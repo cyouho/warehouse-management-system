@@ -34,3 +34,11 @@
     background-color: rgb(0, 101, 67);
     border-color: rgb(0, 101, 67);
 }
+
+.font-expiry {
+    color: rgb(255, 68, 68) !important;
+}
+
+.table td {
+    vertical-align: middle;
+}
