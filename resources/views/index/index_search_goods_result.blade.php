@@ -5,6 +5,7 @@
             <th>备注名</th>
             <th>数量</th>
             <th>单位</th>
+            <th>货架号</th>
             <th>购入日期</th>
             <th>保质期限</th>
             <th>临过期天数/天</th>
@@ -18,6 +19,7 @@
             <td>{{ isset($value['sub_name']) ? $value['sub_name'] : NULL}}</td>
             <td>{{ isset($value['amount']) ? $value['amount'] : NULL}}</td>
             <td>{{ isset($value['unit']) ? $value['unit'] : NULL}}</td>
+            <td>{{ $value['shelves'] }} - {{ $value['number_of_plies'] }}</td>
             <td>{{ isset($value['purchase_date']) ? $value['purchase_date'] : NULL}}</td>
             <td>{{ isset($value['expiry_date']) ? $value['expiry_date'] : NULL}}</td>
             @if ($value['expiry_day'] > 0 && ($value['expiry_day'] < $search_goods_result['expiry_level_days'][$value['expiry_level']])) <td>{{ $value['expiry_day'] }}&nbsp;&nbsp;<span class="badge badge-warning">已临期</span></td>

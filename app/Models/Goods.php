@@ -15,15 +15,7 @@ class Goods extends Model
     const DRINK_TABLE = 'drink';
     const MEDICINE_TABLE = 'medicines';
 
-    public function getNearExpiredGoods(
-        array $columnName = ['*'],
-        array $conditions = [],
-        array $conditionsForOr = []
-    ) {
-        return $this->selectGoods($columnName, $conditions, $conditionsForOr);
-    }
-
-    public function getExpiredGoods(
+    public function getNearExpiredAndExpiredGoods(
         array $columnName = ['*'],
         array $conditions = [],
         array $conditionsForOr = []

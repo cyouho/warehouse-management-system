@@ -10,21 +10,25 @@ class IndexController extends Controller
 {
     private $_goods_category_keys = [];
 
+    private $_expiry_level = [];
+
     public function __construct()
     {
         $this->_goods_category_keys = array_keys(config('goodscategorys.goods_category'));
+        $this->_expiry_level = config('goodscategorys.expiry_level');
     }
 
     public function index(Request $request)
     {
         $middlewareData = $request->input();
         $viewData = $this->getIndexData($middlewareData['user_id']); // 获取 临期，过期 物品。
-        $goodsData = $this->getDockGoodsData(); // 获取入库时的物品内容。
+        $goodsData = $this->getDockGoodsData(); // 获取入库时显示的物品内容。
 
         return view('index.index_layer', [
             'indexData' => [
-                $viewData,
+                'near_expired_and_expired_goods' => $viewData,
                 'goods_data' => $goodsData,
+                'expiry_level_days' => $this->_expiry_level,
             ]
         ]);
     }
@@ -41,6 +45,8 @@ class IndexController extends Controller
             'sub_name',
             'amount',
             'unit',
+            'shelves', // 货架号
+            'number_of_plies', // 货架层数
             DB::raw('DATE_FORMAT(purchase_date, "%Y-%m-%d") as purchase_date'), // 'purchase_date'
             DB::raw('DATE_FORMAT(expiry_date, "%Y-%m-%d") as expiry_date'), // 'expiry_date'
             DB::raw('datediff(date_format(expiry_date, "%Y-%m-%d"), date_format(now(), "%Y-%m-%d")) as expiry_day'), // 'expiry_day'
@@ -124,7 +130,16 @@ class IndexController extends Controller
     private function getIndexData($userId)
     {
         $columnName = [
-            '*'
+            'expiry_level',
+            'offical_name', // 物品名
+            'sub_name', // 物品自定义名
+            'amount', // 数量
+            'unit', // 单位
+            'shelves', // 货架号
+            'number_of_plies', // 货架层数
+            DB::raw('DATE_FORMAT(purchase_date, "%Y-%m-%d") as purchase_date'), // 购入日期
+            DB::raw('DATE_FORMAT(expiry_date, "%Y-%m-%d") as expiry_date'), // 过期日期
+            DB::raw('datediff(date_format(expiry_date, "%Y-%m-%d"), date_format(now(), "%Y-%m-%d")) as expiry_day')
         ];
 
         $conditions = [
@@ -132,13 +147,9 @@ class IndexController extends Controller
         ];
 
         $goods = new Goods();
-        $nearExpiredResult = $goods->getNearExpiredGoods($columnName, $conditions);
-        $expiredResult = $goods->getExpiredGoods();
+        $nearExpiredAndExpiredResult = $goods->getNearExpiredAndExpiredGoods($columnName, $conditions);
 
-        return [
-            'near_expired_goods' => $nearExpiredResult, // 临期物品
-            'expired_goods' => $expiredResult, // 过期物品
-        ];
+        return  $nearExpiredAndExpiredResult; // 临过期物品
     }
 
     private function getDockGoodsData(string $category = 'principal_food')

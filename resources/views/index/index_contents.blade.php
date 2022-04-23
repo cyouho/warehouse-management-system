@@ -1,45 +1,37 @@
 <main class="container">
     <div class="jumbotron p-4 p-md-5 text-green rounded bg-green">
-        <h2>临期:</h2><br>
+        <h2>临过期:</h2><br>
         <table class="table tabel-green">
             <thead>
                 <tr>
                     <th>物品名</th>
+                    <th>备注名</th>
                     <th>数量</th>
+                    <th>单位</th>
+                    <th>货架号</th>
                     <th>购入日期</th>
                     <th>保质期限</th>
-                    <th>临期期限/天</th>
+                    <th>临过期天数/天</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>鸡蛋</td>
-                    <td>30</td>
-                    <td>2022-04-10</td>
-                    <td>2022-04-20</td>
-                    <td>5</td>
-                </tr>
-            </tbody>
-        </table>
-        <h2>过期:</h2><br>
-        <table class="table tabel-green">
-            <thead>
-                <tr>
-                    <th>物品名</th>
-                    <th>数量</th>
-                    <th>购入日期</th>
-                    <th>保质期限</th>
-                    <th>过期天数/天</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>西瓜</td>
-                    <td>1</td>
-                    <td>2022-02-10</td>
-                    <td>2022-02-12</td>
-                    <td>46</td>
-                </tr>
+                @foreach ($indexData['near_expired_and_expired_goods'] as $value)
+                @if(!empty($value) && $value['expiry_day'] < $indexData['expiry_level_days'][$value['expiry_level']]) <tr>
+                    <td>{{ $value['offical_name'] }}</td>
+                    <td>{{ $value['sub_name'] }}</td>
+                    <td>{{ $value['amount'] }}</td>
+                    <td>{{ $value['unit'] }}</td>
+                    <td>{{ $value['shelves'] }} - {{ $value['number_of_plies'] }}</td>
+                    <td>{{ $value['purchase_date'] }}</td>
+                    <td>{{ $value['expiry_date'] }}</td>
+                    @if ($value['expiry_day'] > 0 && ($value['expiry_day'] < $indexData['expiry_level_days'][$value['expiry_level']])) <td>{{ $value['expiry_day'] }}&nbsp;&nbsp;<span class="badge badge-warning">已临期</span></td>
+                        @elseif ($value['expiry_day'] <= 0) <td>{{ abs($value['expiry_day']) }}&nbsp;&nbsp;<span class="badge badge-danger">已过期</span></td>
+                            @else
+                            <td>{{ NULL }}</td>
+                            @endif
+                            </tr>
+                            @endif
+                            @endforeach
             </tbody>
         </table>
     </div>
