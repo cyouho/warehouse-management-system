@@ -42,3 +42,13 @@
 .table td {
     vertical-align: middle;
 }
+
+.link-title {
+    font-size: 2rem;
+    color: rgb(232, 255, 247);
+}
+
+.link-title:hover {
+    color: rgb(204, 255, 237);
+    text-decoration: none !important;
+}

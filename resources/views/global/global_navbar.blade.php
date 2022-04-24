@@ -14,8 +14,7 @@
                             {{$global_data['user_name']}}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item link-secondary" href="#">个人主页</a>
-                            <a class="dropdown-item link-secondary" href="#">旅行详情</a>
+                            <a class="dropdown-item link-secondary" href="#">个人中心</a>
                             <a class="dropdown-item link-secondary" href="#">设置</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item link-secondary" href="/logout">退出</a>
