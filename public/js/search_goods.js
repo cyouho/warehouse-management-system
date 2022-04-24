@@ -7,6 +7,8 @@ $(document).ready(function () {
 
         if (q != '') {
             $("#search-goods-result").load('/searchGoodsAjax', { 'user_id': userId, 'q': q, '_token': token });
+        } else {
+            $("#search-goods-result").html("");
         }
     });
 });
