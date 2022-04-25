@@ -107,6 +107,7 @@ class IndexController extends Controller
 
         $setData = [
             'user_id' => $userId,
+            'monitoring' => isset($postData['is_monitoring']) ? $postData['is_monitoring'] : 0, // 是否加入在库监控
             'expiry_level' => $postData['expiry_level'], // 临期等级
             'offical_name' => $postData['goods_name'],
             'sub_name' => $postData['sub_name'],

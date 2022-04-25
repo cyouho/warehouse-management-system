@@ -8,7 +8,30 @@
         <div id="collapseOne" class="collapse">
             <br>
             <div>
-                #1 内容：菜鸟教程 -- 学的不仅是技术，更是梦想！！！
+                <table class="table tabel-green">
+                    <thead>
+                        <tr>
+                            <th>物品名</th>
+                            <th>备注名</th>
+                            <th>数量</th>
+                            <th>单位</th>
+                            <th>货架号</th>
+                            <th>购入日期</th>
+                            <th>保质期限</th>
+                            <th>临过期天数/天</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -147,6 +170,9 @@
                         </div>
                     </div>
                 </div>
+                <label>是否加入在库监控:</label>&nbsp;&nbsp;
+                <label class="radio-inline"><input type="radio" name="optradio" value="1">是</label>&nbsp;&nbsp;
+                <label class="radio-inline"><input type="radio" name="optradio" value="0">否</label>
                 <div class="dropdown-divider"></div><br>
                 <button type="submit" class="btn btn-green" id="dockSubmit">入库提交</button>
             </div>

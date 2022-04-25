@@ -34,6 +34,7 @@ $(document).ready(function () {
         numberOfPlies = $("#numberOfPlies option:selected").val();
         purchaseDate = $("#purchaseDate").val();
         expiryDate = $("#expiryDate").val();
+        isMonitoring = $("input[type='radio']:checked").val();
 
         $.ajax({
             url: "/setGoodsAjax",
@@ -52,6 +53,7 @@ $(document).ready(function () {
                 "number_of_plies": numberOfPlies,
                 "purchase_date": purchaseDate,
                 "expiry_date": expiryDate,
+                "is_monitoring": isMonitoring,
             },
             success: function (data) {
                 if (data) {
