@@ -21,6 +21,7 @@ class PrincipalFood extends Migration
             $table->engine = 'InnoDB';
             $table->id()->unique();
             $table->integer('user_id');
+            $table->integer('monitoring'); // 是否监控其库存
             $table->integer('expiry_level'); // 食品临期等级
             $table->string('offical_name'); // 食品官方名称
             $table->string('sub_name'); // 食品自定义名称
