@@ -31,6 +31,14 @@ class Goods extends Model
         return $this->selectGoods($columnName, $conditions, $conditionsForOr);
     }
 
+    public function getMonitoringGoods(
+        array $columnName = ['*'],
+        array $conditions = [],
+        array $conditionsForOr = []
+    ) {
+        return $this->selectGoods($columnName, $conditions, $conditionsForOr);
+    }
+
     public function setGoods(string $goodsCategory, array $setData = [])
     {
         return $this->insertGoods($goodsCategory, $setData);
