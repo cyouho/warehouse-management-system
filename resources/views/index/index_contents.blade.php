@@ -7,32 +7,7 @@
         </div>
         <div id="collapseOne" class="collapse">
             <br>
-            <div>
-                <table class="table tabel-green">
-                    <thead>
-                        <tr>
-                            <th>物品名</th>
-                            <th>备注名</th>
-                            <th>数量</th>
-                            <th>单位</th>
-                            <th>货架号</th>
-                            <th>购入日期</th>
-                            <th>保质期限</th>
-                            <th>临过期天数/天</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tbody>
-                </table>
-            </div>
+            @include('index.index_monitoring_goods')
         </div>
     </div>
     <div class="jumbotron p-4 p-md-5 text-green rounded bg-green">

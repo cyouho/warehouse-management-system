@@ -23,12 +23,14 @@ class IndexController extends Controller
         $middlewareData = $request->input();
         $viewData = $this->getIndexData($middlewareData['user_id']); // 获取 临期，过期 物品。
         $goodsData = $this->getDockGoodsData(); // 获取入库时显示的物品内容。
+        $monitoringData = $this->getMonitoringGoodsData($middlewareData['user_id']);
 
         return view('index.index_layer', [
             'indexData' => [
                 'near_expired_and_expired_goods' => $viewData,
                 'goods_data' => $goodsData,
                 'expiry_level_days' => $this->_expiry_level,
+                'monitoring_goods' => $monitoringData,
             ]
         ]);
     }
@@ -164,5 +166,31 @@ class IndexController extends Controller
         $dockGoods = $dockGoodsData[$category];
 
         return $dockGoods;
+    }
+
+    private function getMonitoringGoodsData($userId)
+    {
+        $columnName = [
+            'expiry_level',
+            'offical_name', // 物品名
+            'sub_name', // 物品自定义名
+            'amount', // 数量
+            'unit', // 单位
+            'shelves', // 货架号
+            'number_of_plies', // 货架层数
+            DB::raw('DATE_FORMAT(purchase_date, "%Y-%m-%d") as purchase_date'), // 购入日期
+            DB::raw('DATE_FORMAT(expiry_date, "%Y-%m-%d") as expiry_date'), // 过期日期
+            DB::raw('datediff(date_format(expiry_date, "%Y-%m-%d"), date_format(now(), "%Y-%m-%d")) as expiry_day')
+        ];
+
+        $conditions = [
+            ['user_id', $userId],
+            ['monitoring', 1],
+        ];
+
+        $goods = new Goods();
+        $monitoringGoods = $goods->getMonitoringGoods($columnName, $conditions);
+
+        return $monitoringGoods;
     }
 }
