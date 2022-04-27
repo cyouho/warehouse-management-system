@@ -9,6 +9,7 @@
             <th>购入日期</th>
             <th>保质期限</th>
             <th>临过期天数/天</th>
+            <th>操作</th>
         </tr>
     </thead>
     <tbody>
@@ -27,6 +28,10 @@
                     @else
                     <td>{{ NULL }}</td>
                     @endif
+                    <td>
+                        <button type="button" id="checkOutGoodsForSearch" class="btn btn-warning btn-sm">出库</button>&nbsp;&nbsp;
+                        <button type="button" id="deleteGoodsForSearch" class="btn btn-danger btn-sm del-goods-for-search" goods-id="{{ $value['id'] }}" table="{{ $value['table_name'] }}">删除</button>
+                    </td>
         </tr>
         @endif
         @endforeach

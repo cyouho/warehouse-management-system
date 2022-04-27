@@ -22,3 +22,5 @@
 <script src="js/add_goods.js"></script>
 <!-- Search Goods JS -->
 <script src="js/search_goods.js"></script>
+<!-- Delete Goods JS -->
+<script src="js/del_goods.js"></script>
