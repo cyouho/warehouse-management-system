@@ -42,6 +42,7 @@ class IndexController extends Controller
         if ($postData['q'] === '') return FALSE;
 
         $columnName = [
+            'id',
             'expiry_level',
             'offical_name',
             'sub_name',
@@ -128,6 +129,18 @@ class IndexController extends Controller
         $result = $goods->setGoods($goodsCategory, $setData);
 
         return response()->json($result);
+    }
+
+    public function delGoodsAjax(Request $request)
+    {
+        $postData = $request->post();
+        $delData = [
+            ['id', $postData['goods_id']],
+        ];
+        $tableName = $postData['table'];
+
+        $goods = new Goods();
+        $goods->delGoods($tableName, $delData);
     }
 
     private function getIndexData($userId)

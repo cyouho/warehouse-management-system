@@ -44,31 +44,36 @@ class Goods extends Model
         return $this->insertGoods($goodsCategory, $setData);
     }
 
+    public function delGoods(string $tableName, array $conditions = [])
+    {
+        $this->deleteGoods($tableName, $conditions);
+    }
+
     private function selectGoods(
         array $columnName = ['*'],
         array $conditions = [],
         array $conditionsForOr = []
     ) {
         $principalResult = DB::table(self::PRINCIPAL_FOOD_TABLE)
-            ->select($columnName)
+            ->select(array_merge($columnName, [DB::raw("'" . self::PRINCIPAL_FOOD_TABLE . "'" . 'as table_name')]))
             ->where($conditions)
             ->orWhere($conditionsForOr)
             ->get();
 
         $subsidiaryResult = DB::table(self::SUBSIDIARY_FOOD_TABLE)
-            ->select($columnName)
+            ->select(array_merge($columnName, [DB::raw("'" . self::SUBSIDIARY_FOOD_TABLE . "'" . 'as table_name')]))
             ->where($conditions)
             ->orWhere($conditionsForOr)
             ->get();
 
         $drinkResult = DB::table(self::DRINK_TABLE)
-            ->select($columnName)
+            ->select(array_merge($columnName, [DB::raw("'" . self::DRINK_TABLE . "'" . 'as table_name')]))
             ->where($conditions)
             ->orWhere($conditionsForOr)
             ->get();
 
         $medicineResult = DB::table(self::MEDICINE_TABLE)
-            ->select($columnName)
+            ->select(array_merge($columnName, [DB::raw("'" . self::MEDICINE_TABLE . "'" . 'as table_name')]))
             ->where($conditions)
             ->orWhere($conditionsForOr)
             ->get();
@@ -87,5 +92,12 @@ class Goods extends Model
             ->insert($setData);
 
         return $result;
+    }
+
+    private function deleteGoods(string $tableName, array $conditions = [])
+    {
+        DB::table($tableName)
+            ->where($conditions)
+            ->delete();
     }
 }

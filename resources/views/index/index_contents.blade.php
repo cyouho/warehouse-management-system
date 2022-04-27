@@ -30,6 +30,7 @@
                             <th>购入日期</th>
                             <th>保质期限</th>
                             <th>临过期天数/天</th>
+                            <th>操作</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,6 +48,10 @@
                                     @else
                                     <td>{{ NULL }}</td>
                                     @endif
+                                    <td>
+                                        <button type="button" id="checkOutGoodsForExpiry" class="btn btn-warning btn-sm">出库</button>&nbsp;&nbsp;
+                                        <button type="button" id="deleteGoodsForExpiry" class="btn btn-danger btn-sm">删除</button>
+                                    </td>
                                     </tr>
                                     @endif
                                     @endforeach
