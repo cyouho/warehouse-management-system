@@ -23,7 +23,7 @@ class IndexController extends Controller
         $middlewareData = $request->input();
         $viewData = $this->getIndexData($middlewareData['user_id']); // 获取 临期，过期 物品。
         $goodsData = $this->getDockGoodsData(); // 获取入库时显示的物品内容。
-        $monitoringData = $this->getMonitoringGoodsData($middlewareData['user_id']);
+        $monitoringData = $this->getMonitoringGoodsData($middlewareData['user_id']); // 首页监控在库
 
         return view('index.index_layer', [
             'indexData' => [
@@ -146,6 +146,7 @@ class IndexController extends Controller
     private function getIndexData($userId)
     {
         $columnName = [
+            'id',
             'expiry_level',
             'offical_name', // 物品名
             'sub_name', // 物品自定义名
@@ -184,6 +185,7 @@ class IndexController extends Controller
     private function getMonitoringGoodsData($userId)
     {
         $columnName = [
+            'id',
             'expiry_level',
             'offical_name', // 物品名
             'sub_name', // 物品自定义名

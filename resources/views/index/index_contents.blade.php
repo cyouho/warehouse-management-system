@@ -50,7 +50,7 @@
                                     @endif
                                     <td>
                                         <button type="button" id="checkOutGoodsForExpiry" class="btn btn-warning btn-sm">出库</button>&nbsp;&nbsp;
-                                        <button type="button" id="deleteGoodsForExpiry" class="btn btn-danger btn-sm">删除</button>
+                                        <button type="button" id="deleteGoodsForExpiry" class="btn btn-danger btn-sm del-goods-for-expiry" goods-id-for-expiry="{{ $value['id'] }}" table-for-expiry="{{ $value['table_name'] }}">删除</button>
                                     </td>
                                     </tr>
                                     @endif
