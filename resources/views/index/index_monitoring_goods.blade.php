@@ -31,7 +31,7 @@
                         @endif
                         <td>
                             <button type="button" id="checkOutGoodsForMonitoring" class="btn btn-warning btn-sm">出库</button>&nbsp;&nbsp;
-                            <button type="button" id="deleteGoodsForMonitoring" class="btn btn-danger btn-sm">删除</button>
+                            <button type="button" id="deleteGoodsForMonitoring" class="btn btn-danger btn-sm del-goods-for-monitoring" goods-id-for-monitoring="{{ $value['id'] }}" table-for-monitoring="{{ $value['table_name'] }}">删除</button>
                         </td>
             </tr>
             @endif

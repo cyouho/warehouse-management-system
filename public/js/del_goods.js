@@ -17,6 +17,14 @@ $(document).ready(function () {
         delGoods(goodsId, table);
     });
 
+    $(".del-goods-for-monitoring").click(function () {
+        goodsId = $(this).attr("goods-id-for-monitoring");
+        table = $(this).attr("table-for-monitoring");
+        $(this).closest("tr").remove();
+
+        delGoods(goodsId, table);
+    });
+
     function delGoods(goodsId, table) {
         $.ajax({
             url: "/delGoodsAjax",
