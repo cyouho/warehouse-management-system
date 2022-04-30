@@ -15,7 +15,7 @@
 <!-- Bootstrap core CSS -->
 <link href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 <!-- Bootstrap core CSS icon-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<link rel="stylesheet" href="css/bootstrap-icons.css">
 <!-- Custom CSS -->
 <link rel="stylesheet" href="css/global.css">
 <!-- Add Goods JS -->
@@ -24,3 +24,7 @@
 <script src="js/search_goods.js"></script>
 <!-- Delete Goods JS -->
 <script src="js/del_goods.js"></script>
+<!-- Monitoring Goods JS -->
+<script src="js/monitoring_goods.js"></script>
+<!-- Checkout Goods JS-->
+<script src="js/checkout_goods.js"></script>
