@@ -5,7 +5,7 @@
                 在库监控物品一览:
             </a>
         </div>
-        <div id="collapseOne" class="collapse">
+        <div id="collapseOne" class="collapse show">
             <br>
             @include('index.index_monitoring_goods')
         </div>
@@ -16,7 +16,7 @@
                 临过期:
             </a>
         </div>
-        <div id="expiryAndexpiredGoods" class="collapse">
+        <div id="expiryAndexpiredGoods" class="collapse show">
             <br>
             <div>
                 <table class="table tabel-green">
@@ -38,7 +38,11 @@
                         @if(!empty($value) && $value['expiry_day'] < $indexData['expiry_level_days'][$value['expiry_level']]) <tr>
                             <td>{{ $value['offical_name'] }}</td>
                             <td>{{ $value['sub_name'] }}</td>
-                            <td>{{ $value['amount'] }}</td>
+                            <td>
+                                <button class="btn btn-outline-light custom-inline checkout-dash" default-value="{{ $value['amount'] }}"><i class="bi-dash-circle"></i></button>
+                                <input type="text" class="form-control custom-form-control custom-inline" onkeydown="return false" data-max="{{ $value['amount'] }}" data-min="0" value="{{ $value['amount'] }}"></input>
+                                <button class="btn btn-outline-light custom-inline checkout-plus"><i class="bi-plus-circle"></i></button>
+                            </td>
                             <td>{{ $value['unit'] }}</td>
                             <td>{{ $value['shelves'] }} - {{ $value['number_of_plies'] }}</td>
                             <td>{{ $value['purchase_date'] }}</td>
@@ -49,8 +53,9 @@
                                     <td>{{ NULL }}</td>
                                     @endif
                                     <td>
-                                        <button type="button" id="checkOutGoodsForExpiry" class="btn btn-warning btn-sm">出库</button>&nbsp;&nbsp;
-                                        <button type="button" id="deleteGoodsForExpiry" class="btn btn-danger btn-sm del-goods-for-expiry" goods-id-for-expiry="{{ $value['id'] }}" table-for-expiry="{{ $value['table_name'] }}">删除</button>
+                                        <button type="button" id="checkOutGoodsForExpiry" class="btn btn-green" data-toggle="tooltip-checkout" title="出库"><i class="bi-bag-dash"></i></button>&nbsp;&nbsp;
+                                        <button type="button" id="deleteGoodsForExpiry" class="btn btn-green del-goods-for-expiry" goods-id-for-expiry="{{ $value['id'] }}" table-for-expiry="{{ $value['table_name'] }}" data-toggle="tooltip-delete" title="删除"><i class="bi-x-lg"></i></button>&nbsp;&nbsp;
+                                        <button type="button" id="addMonitoringForExpiry" class="btn btn-green" data-toggle="tooltip-monitoring" title="加入监控"><i class="bi-bell"></i></button>
                                     </td>
                                     </tr>
                                     @endif

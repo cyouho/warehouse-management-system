@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    var token = $('meta[name="csrf-token"]').attr('content');
+    $('[data-toggle="tooltip-checkout"]').tooltip();
+    $('[data-toggle="tooltip-delete"]').tooltip();
 
     $(".del-goods-for-expiry").click(function () {
         goodsId = $(this).attr("goods-id-for-expiry");

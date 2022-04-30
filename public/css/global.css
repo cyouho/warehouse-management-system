@@ -56,3 +56,20 @@
 .radio-font-size {
     font-size: 1rem;
 }
+
+.custom-checkbox {
+    margin-bottom: 0 !important;
+}
+
+.custom-checkbox-title {
+    display: inline-block;
+}
+
+.custom-form-control {
+    width: 60px;
+}
+
+.custom-inline {
+    display: inline-block;
+    vertical-align: baseline;
+}

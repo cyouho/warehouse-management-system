@@ -143,6 +143,12 @@ class IndexController extends Controller
         $goods->delGoods($tableName, $delData);
     }
 
+    public function monitoringGoodsAjax(Request $request)
+    {
+        $postData = $request->post();
+        dd($postData['goods_id']);
+    }
+
     private function getIndexData($userId)
     {
         $columnName = [
