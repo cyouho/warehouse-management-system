@@ -149,6 +149,28 @@ class IndexController extends Controller
         dd($postData['goods_id']);
     }
 
+    public function checkoutGoodsAjax(Request $request)
+    {
+        $postData = $request->post();
+
+        if ($postData['goods_amount'] < 0) {
+            return FALSE;
+        }
+
+        $tableName = $postData['table'];
+        $conditions = [
+            ['id', $postData['goods_id']],
+        ];
+        $updateData = [
+            'amount' => $postData['goods_amount'],
+        ];
+
+        $goods = new Goods();
+        $result = $goods->checkoutGoods($tableName, $updateData, $conditions);
+
+        return response()->json($result);
+    }
+
     private function getIndexData($userId)
     {
         $columnName = [

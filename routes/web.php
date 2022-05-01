@@ -32,4 +32,5 @@ Route::middleware(['check.login'])->group(function () {
     Route::post('/setGoodsAjax', [IndexController::class, 'setGoodsAjax']);
     Route::post('/delGoodsAjax', [IndexController::class, 'delGoodsAjax']);
     Route::post('/monitoringGoodsAjax', [IndexController::class, 'monitoringGoodsAjax']);
+    Route::post('/checkoutGoodsAjax', [IndexController::class, 'checkoutGoodsAjax']);
 });
