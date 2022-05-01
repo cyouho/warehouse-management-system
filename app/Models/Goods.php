@@ -49,6 +49,14 @@ class Goods extends Model
         $this->deleteGoods($tableName, $conditions);
     }
 
+    public function checkoutGoods(
+        string $tableName,
+        array $updateData = [],
+        array $conditions = []
+    ) {
+        return $this->updateGoods($tableName, $updateData, $conditions);
+    }
+
     private function selectGoods(
         array $columnName = ['*'],
         array $conditions = [],
@@ -99,5 +107,17 @@ class Goods extends Model
         DB::table($tableName)
             ->where($conditions)
             ->delete();
+    }
+
+    private function updateGoods(
+        string $tableName,
+        array $updateData = [],
+        array $conditions = []
+    ) {
+        $affected = DB::table($tableName)
+            ->where($conditions)
+            ->update($updateData);
+
+        return $affected;
     }
 }
