@@ -39,9 +39,9 @@
                             <td>{{ $value['offical_name'] }}</td>
                             <td>{{ $value['sub_name'] }}</td>
                             <td>
-                                <button dash-id="{{ $value['table_name'] }}-{{ $value['id'] }}" class="btn btn-outline-light custom-inline checkout-dash" default-value="{{ $value['amount'] }}"><i class="bi-dash-circle"></i></button>
-                                <input type="text" id="{{ $value['table_name'] }}-{{ $value['id'] }}" class="form-control custom-form-control custom-inline" onkeydown="return false" data-max="{{ $value['amount'] }}" data-min="0" value="{{ $value['amount'] }}"></input>
-                                <button plus-id="{{ $value['table_name'] }}-{{ $value['id'] }}" class="btn btn-outline-light custom-inline checkout-plus"><i class="bi-plus-circle"></i></button>
+                                <button dash-id="expiry-{{ $value['table_name'] }}-{{ $value['id'] }}" class="btn btn-outline-light custom-inline checkout-dash" default-value="{{ $value['amount'] }}"><i class="bi-dash-circle"></i></button>
+                                <input type="text" id="expiry-{{ $value['table_name'] }}-{{ $value['id'] }}" class="form-control custom-form-control custom-inline" onkeydown="return false" data-max="{{ $value['amount'] }}" data-min="0" value="{{ $value['amount'] }}"></input>
+                                <button plus-id="expiry-{{ $value['table_name'] }}-{{ $value['id'] }}" class="btn btn-outline-light custom-inline checkout-plus"><i class="bi-plus-circle"></i></button>
                             </td>
                             <td>{{ $value['unit'] }}</td>
                             <td>{{ $value['shelves'] }} - {{ $value['number_of_plies'] }}</td>
@@ -53,7 +53,7 @@
                                     <td>{{ NULL }}</td>
                                     @endif
                                     <td>
-                                        <button type="button" id="checkOutGoodsForExpiry" class="btn btn-green checkout-goods-for-expiry" checkout-table-id-for-expiry="{{ $value['table_name'] }}" checkout-id-for-expiry="{{ $value['id'] }}" data-toggle="tooltip-checkout" title="出库"><i class="bi-bag-dash"></i></button>&nbsp;&nbsp;
+                                        <button type="button" id="checkOutGoodsForExpiry" class="btn btn-green checkout-goods" button-name="expiry" checkout-table-id="{{ $value['table_name'] }}" checkout-id="{{ $value['id'] }}" data-toggle="tooltip-checkout" title="出库"><i class="bi-bag-dash"></i></button>&nbsp;&nbsp;
                                         <button type="button" id="deleteGoodsForExpiry" class="btn btn-green del-goods-for-expiry" goods-id-for-expiry="{{ $value['id'] }}" table-for-expiry="{{ $value['table_name'] }}" data-toggle="tooltip-delete" title="删除"><i class="bi-x-lg"></i></button>&nbsp;&nbsp;
                                         <button type="button" id="addMonitoringForExpiry" class="btn btn-green" data-toggle="tooltip-monitoring" title="加入监控"><i class="bi-bell"></i></button>
                                     </td>
