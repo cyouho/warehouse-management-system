@@ -44,6 +44,14 @@ class Goods extends Model
         return $this->insertGoods($goodsCategory, $setData);
     }
 
+    public function setMonitoringGoods(
+        string $tableName,
+        array $updateData = [],
+        array $conditions = []
+    ) {
+        return $this->updateGoods($tableName, $updateData, $conditions);
+    }
+
     public function delGoods(string $tableName, array $conditions = [])
     {
         $this->deleteGoods($tableName, $conditions);
