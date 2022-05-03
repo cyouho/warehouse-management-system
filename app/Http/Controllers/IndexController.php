@@ -43,6 +43,7 @@ class IndexController extends Controller
 
         $columnName = [
             'id',
+            'monitoring',
             'expiry_level',
             'offical_name',
             'sub_name',
@@ -146,7 +147,18 @@ class IndexController extends Controller
     public function monitoringGoodsAjax(Request $request)
     {
         $postData = $request->post();
-        dd($postData['goods_id']);
+
+        $updateData = [
+            'monitoring' => DB::raw('IF(monitoring = 1, 0, 1)'),
+        ];
+        $conditions = [
+            ['id', $postData['goods_id']],
+        ];
+
+        $goods = new Goods();
+        $result = $goods->setMonitoringGoods($postData['table_name'], $updateData, $conditions);
+
+        return response()->json($result);
     }
 
     public function checkoutGoodsAjax(Request $request)
@@ -175,6 +187,7 @@ class IndexController extends Controller
     {
         $columnName = [
             'id',
+            'monitoring',
             'expiry_level',
             'offical_name', // 物品名
             'sub_name', // 物品自定义名
@@ -214,6 +227,7 @@ class IndexController extends Controller
     {
         $columnName = [
             'id',
+            'monitoring',
             'expiry_level',
             'offical_name', // 物品名
             'sub_name', // 物品自定义名

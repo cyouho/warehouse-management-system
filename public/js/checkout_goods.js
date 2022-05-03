@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    // made for expiry and monitoring.
     $(".checkout-dash").click(function () {
         inputId = $(this).attr("dash-id");
         defaultAmount = $("#" + inputId).val();
@@ -36,6 +37,7 @@ $(document).ready(function () {
         }
     });
 
+    // made for search.
     $("#search-goods-result").on("click", ".search-dash", function () {
         inputId = $(this).attr("dash-id");
         defaultAmount = $("#" + inputId).val();
@@ -73,6 +75,7 @@ $(document).ready(function () {
         }
     });
 
+    // delete goods ajax function.
     function delGoods(goodsId, table) {
         $.ajax({
             url: "/delGoodsAjax",
@@ -90,6 +93,7 @@ $(document).ready(function () {
         });
     }
 
+    // checkout goods function.
     function checkoutGoods(goodsId, table, goodsAmount) {
         $.ajax({
             url: "/checkoutGoodsAjax",
