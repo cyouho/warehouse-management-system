@@ -36,7 +36,11 @@
                         <td>
                             <button type="button" id="checkOutGoodsForExpiry" class="btn btn-green checkout-goods" button-name="monitoring" checkout-table-id="{{ $value['table_name'] }}" checkout-id="{{ $value['id'] }}" data-toggle="tooltip-checkout" title="出库"><i class="bi-bag-dash"></i></button>&nbsp;&nbsp;
                             <button type="button" id="deleteGoodsForExpiry" class="btn btn-green del-goods-for-monitoring" goods-id-for-monitoring="{{ $value['id'] }}" table-for-monitoring="{{ $value['table_name'] }}" data-toggle="tooltip-delete" title="删除"><i class="bi-x-lg"></i></button>&nbsp;&nbsp;
-                            <button type="button" id="addMonitoringForExpiry" class="btn btn-green" data-toggle="tooltip-monitoring" title="加入监控"><i class="bi-bell"></i></button>
+                            @if (!$value['monitoring'])
+                            <button type="button" id="addMonitoringForExpiry" class="btn btn-green monitoring-goods" monitoring-table-id="{{ $value['table_name'] }}" monitorin-id="{{ $value['id'] }}" data-toggle="tooltip-monitoring" title="加入监控"><i class="bi-bell"></i></button>
+                            @else
+                            <button type="button" id="addMonitoringForExpiry" class="btn btn-green monitoring-goods" monitoring-table-id="{{ $value['table_name'] }}" monitorin-id="{{ $value['id'] }}" data-toggle="tooltip-monitoring" title="移除监控"><i class="bi-bell-slash"></i></button>
+                            @endif
                         </td>
             </tr>
             @endif
