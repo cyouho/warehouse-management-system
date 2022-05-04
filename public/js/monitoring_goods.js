@@ -8,6 +8,13 @@ $(document).ready(function () {
         monitoringGoods(tableName, goodsId);
     });
 
+    $("#search-goods-result").on("click", ".monitoring-goods", function () {
+        tableName = $(this).attr("monitoring-table-id");
+        goodsId = $(this).attr("monitorin-id");
+
+        monitoringGoods(tableName, goodsId);
+    });
+
     function monitoringGoods(tableName, goodsId) {
         $.ajax({
             url: '/monitoringGoodsAjax',
