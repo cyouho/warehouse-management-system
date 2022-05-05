@@ -9,13 +9,22 @@ use Illuminate\Support\Facades\Cookie;
 
 class AuthController extends Controller
 {
+    /**
+     * Auth func URL. 登录注册功能用URL
+     */
     private $_url = [];
 
+    /**
+     * Init auth func url. 初始化url
+     */
     public function __construct()
     {
         $this->_url = config('serversurl');
     }
 
+    /**
+     * Show register page func. 显示注册页面
+     */
     public function showRegisterPage()
     {
         return view('register');
