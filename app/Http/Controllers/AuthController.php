@@ -30,6 +30,9 @@ class AuthController extends Controller
         return view('register');
     }
 
+    /**
+     * Show login page func. 显示登陆页面
+     */
     public function showLoginPage()
     {
         return view('login');
