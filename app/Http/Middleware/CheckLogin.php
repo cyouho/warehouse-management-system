@@ -22,7 +22,7 @@ class CheckLogin
         $cookie = request()->cookie('_cyouho');
 
         if (is_null($cookie)) {
-            redirect('/login')->send();
+            redirect('http://cyouho.com:8000/login')->send();
         }
 
         $url = config('serversurl');
