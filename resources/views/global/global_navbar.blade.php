@@ -2,7 +2,7 @@
     <header class="py-3 border-bottom">
         <div class="row flex-nowrap justify-content-between align-items-center">
             <div class="col-4 pt-1">
-                <a class="link-secondary" href="#">Home</a>
+                <a class="link-secondary" href="http://cyouho.com:8000">Home</a>
             </div>
             <div class="col-4 text-center">
                 <a class="header-title">家用货架管理系统</a>
@@ -14,8 +14,8 @@
                             {{$global_data['user_name']}}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item link-secondary" href="#">个人中心</a>
-                            <a class="dropdown-item link-secondary" href="#">设置</a>
+                            <a class="dropdown-item link-secondary" href="http://cyouho.com:8000/profile">个人中心</a>
+                            <a class="dropdown-item link-secondary" href="http://cyouho.com:8000/setting">设置</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item link-secondary" href="/logout">退出</a>
                         </div>
