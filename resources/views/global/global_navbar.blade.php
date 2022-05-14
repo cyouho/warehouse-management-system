@@ -17,7 +17,7 @@
                             <a class="dropdown-item link-secondary" href="http://cyouho.com:8000/profile">个人中心</a>
                             <a class="dropdown-item link-secondary" href="http://cyouho.com:8000/setting">设置</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item link-secondary" href="/logout">退出</a>
+                            <a class="dropdown-item link-secondary" href="http://cyouho.com:8000/logout">退出</a>
                         </div>
                     </div>
                 </ul>
