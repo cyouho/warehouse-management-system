@@ -5,6 +5,7 @@ return [
         'subsidiary_food' => '副食',
         'drink' => '饮料',
         'medicines' => '药品',
+        'daily_chemical_products' => '日化品',
     ],
     'expiry_level' => [
         1 => 45, // expiry level 1 的临期期限是 45 天，以下类推。
@@ -57,6 +58,13 @@ return [
             '钙片',
             '氯化钾片',
             '冠心病-xxx',
+            '其他',
+        ],
+        'daily_chemical_products' => [
+            '牙膏',
+            '牙刷',
+            '厕纸',
+            '抽纸',
             '其他',
         ],
     ],

@@ -89,6 +89,7 @@
                                         <option id="subsidiary_food" value="subsidiary_food">副食</option>
                                         <option id="drink" value="drink">饮料</option>
                                         <option id="medicines" value="medicines">药品</option>
+                                        <option id="daily_chemical_products" value="daily_chemical_products">日化品</option>
                                     </select>
                                 </div>
                                 <div class="col">

@@ -14,6 +14,7 @@ class Goods extends Model
     const SUBSIDIARY_FOOD_TABLE = 'subsidiary_food';
     const DRINK_TABLE = 'drink';
     const MEDICINE_TABLE = 'medicines';
+    const DAILY_CHEMICAL_PRODUCTS = 'daily_chemical_products';
 
     public function getNearExpiredAndExpiredGoods(
         array $columnName = ['*'],
@@ -94,11 +95,18 @@ class Goods extends Model
             ->orWhere($conditionsForOr)
             ->get();
 
+        $dailyChemicalProductsResult = DB::table(self::DAILY_CHEMICAL_PRODUCTS)
+            ->select(array_merge($columnName, [DB::raw("'" . self::DAILY_CHEMICAL_PRODUCTS . "'" . 'as table_name')]))
+            ->where($conditions)
+            ->orWhere($conditionsForOr)
+            ->get();
+
         return array_merge(
             json_decode($principalResult, TRUE),
             json_decode($subsidiaryResult, TRUE),
             json_decode($drinkResult, TRUE),
             json_decode($medicineResult, TRUE),
+            json_decode($dailyChemicalProductsResult, TRUE),
         );
     }
 
