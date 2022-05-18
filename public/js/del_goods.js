@@ -11,8 +11,8 @@ $(document).ready(function () {
     });
 
     $("#search-goods-result").on("click", ".del-goods-for-search", function () {
-        goodsId = $(this).attr("goods-id");
-        table = $(this).attr("table");
+        goodsId = $(this).attr("goods-id-for-search");
+        table = $(this).attr("table-for-search");
         $(this).closest("tr").remove();
 
         delGoods(goodsId, table);
