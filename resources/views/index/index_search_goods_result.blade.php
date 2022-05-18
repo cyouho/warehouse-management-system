@@ -17,7 +17,7 @@
         @if(!empty($value))
         <tr>
             <td>{{ isset($value['offical_name']) ? $value['offical_name'] : NULL}}</td>
-            <td>{{ isset($value['sub_name']) ? $value['sub_name'] : NULL}}</td>
+            <td title="{{ isset($value['sub_name']) ? $value['sub_name'] : NULL}}">{{ isset($value['sub_name']) ? $value['sub_name'] : NULL}}</td>
             <td>
                 <button dash-id="search-{{ $value['table_name'] }}-{{ $value['id'] }}" class="btn btn-outline-light custom-inline search-dash" default-value="{{ $value['amount'] }}"><i class="bi-dash-circle"></i></button>
                 <input type="text" id="search-{{ $value['table_name'] }}-{{ $value['id'] }}" class="form-control custom-form-control custom-inline" onkeydown="return false" data-max="{{ $value['amount'] }}" data-min="0" value="{{ $value['amount'] }}"></input>
@@ -34,7 +34,7 @@
                     @endif
                     <td>
                         <button type="button" id="checkOutGoodsForExpiry" class="btn btn-green checkout-goods-for-search" checkout-table-id-for-search="{{ $value['table_name'] }}" checkout-id-for-search="{{ $value['id'] }}" data-toggle="tooltip-checkout" title="出库"><i class="bi-bag-dash"></i></button>&nbsp;&nbsp;
-                        <button type="button" id="deleteGoodsForExpiry" class="btn btn-green del-goods-for-expiry" goods-id-for-expiry="{{ $value['id'] }}" table-for-expiry="{{ $value['table_name'] }}" data-toggle="tooltip-delete" title="删除"><i class="bi-x-lg"></i></button>&nbsp;&nbsp;
+                        <button type="button" id="deleteGoodsForExpiry" class="btn btn-green del-goods-for-search" goods-id-for-search="{{ $value['id'] }}" table-for-search="{{ $value['table_name'] }}" data-toggle="tooltip-delete" title="删除"><i class="bi-x-lg"></i></button>&nbsp;&nbsp;
                         @if (!$value['monitoring'])
                         <button type="button" id="addMonitoringForExpiry" class="btn btn-green monitoring-goods" monitoring-table-id="{{ $value['table_name'] }}" monitorin-id="{{ $value['id'] }}" data-toggle="tooltip-monitoring" title="加入监控"><i class="bi-bell"></i></button>
                         @else
