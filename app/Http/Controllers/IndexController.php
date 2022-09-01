@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Goods;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Index Controller Class.
+ * 主页控制器类
+ */
 class IndexController extends Controller
 {
     private $_goods_category_keys = [];
