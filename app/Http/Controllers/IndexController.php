@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\DB;
  */
 class IndexController extends Controller
 {
+    /**
+     * Goods category keys.
+     * 物品key
+     */
     private $_goods_category_keys = [];
 
     private $_expiry_level = [];
