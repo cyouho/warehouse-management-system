@@ -18,6 +18,10 @@ class IndexController extends Controller
      */
     private $_goods_category_keys = [];
 
+    /**
+     * expiry date level.
+     * 临过期等级
+     */
     private $_expiry_level = [];
 
     public function __construct()
