@@ -24,6 +24,10 @@ class IndexController extends Controller
      */
     private $_expiry_level = [];
 
+    /**
+     * construct function.
+     * 构造方法
+     */
     public function __construct()
     {
         $this->_goods_category_keys = array_keys(config('goodscategorys.goods_category'));
