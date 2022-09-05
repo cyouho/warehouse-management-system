@@ -34,6 +34,14 @@ class IndexController extends Controller
         $this->_expiry_level = config('goodscategorys.expiry_level');
     }
 
+    /**
+     * Index function.
+     * 主要页面显示
+     * 
+     * @param Request $request <IO context | IO 上下文>
+     * 
+     * @return view
+     */
     public function index(Request $request)
     {
         $middlewareData = $request->input();
