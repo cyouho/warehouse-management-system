@@ -108,6 +108,14 @@ class IndexController extends Controller
         ]);
     }
 
+    /**
+     * Get Goods Ajax.
+     * 获取物品 Ajax Function
+     * 
+     * @param Request $request <IO context | IO 上下文>
+     * 
+     * @return view
+     */
     public function getGoodsAjax(Request $request)
     {
         $postData = $request->post();
