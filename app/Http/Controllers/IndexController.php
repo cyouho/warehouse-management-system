@@ -110,7 +110,7 @@ class IndexController extends Controller
 
     /**
      * Get Goods Ajax.
-     * 获取物品 Ajax Function
+     * 获取物品 Ajax 方法
      * 
      * @param Request $request <IO context | IO 上下文>
      * 
@@ -130,6 +130,14 @@ class IndexController extends Controller
         ]);
     }
 
+    /**
+     * Set Goods Ajax.
+     * 设置物品 Ajax 方法
+     * 
+     * @param Request $request <IO context | IO 上下文>
+     * 
+     * @return Response json
+     */
     public function setGoodsAjax(Request $request)
     {
         $postData = $request->post();
