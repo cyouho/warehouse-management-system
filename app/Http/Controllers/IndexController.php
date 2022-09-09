@@ -180,6 +180,12 @@ class IndexController extends Controller
         return response()->json($result);
     }
 
+    /**
+     * Delete Goods Ajax.
+     * 删除物品 Ajax 方法
+     * 
+     * @param Request $request <IO context | IO 上下文>
+     */
     public function delGoodsAjax(Request $request)
     {
         $postData = $request->post();
