@@ -198,6 +198,14 @@ class IndexController extends Controller
         $goods->delGoods($tableName, $delData);
     }
 
+    /**
+     * Monitoring Goods Ajax.
+     * 监控物品用 Ajax 方法
+     * 
+     * @param Request $request <IO context | IO 上下文>
+     * 
+     * @return json
+     */
     public function monitoringGoodsAjax(Request $request)
     {
         $postData = $request->post();
