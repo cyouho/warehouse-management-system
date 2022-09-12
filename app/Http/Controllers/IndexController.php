@@ -223,6 +223,14 @@ class IndexController extends Controller
         return response()->json($result);
     }
 
+    /**
+     * Checkout Goods Ajax.
+     * 检查物品 Ajax 方法
+     * 
+     * @param Request $request <IO context | IO 上下文>
+     * 
+     * @return json
+     */
     public function checkoutGoodsAjax(Request $request)
     {
         $postData = $request->post();
