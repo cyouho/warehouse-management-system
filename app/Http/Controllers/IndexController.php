@@ -253,6 +253,14 @@ class IndexController extends Controller
         return response()->json($result);
     }
 
+    /**
+     * Get Index Data.
+     * 获取首页数据
+     * 
+     * @param int $userId <user Id | 用户Id>
+     * 
+     * @return array $nearExpiredAndExpiredResult <index data | 首页数据>
+     */
     private function getIndexData($userId)
     {
         $columnName = [
