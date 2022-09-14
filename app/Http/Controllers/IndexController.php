@@ -288,6 +288,14 @@ class IndexController extends Controller
         return  $nearExpiredAndExpiredResult; // 临过期物品
     }
 
+    /**
+     * Get Dock Goods Data.
+     * 获取入库物品清单数据
+     * 
+     * @param string $category <goods category | 物品类别>
+     * 
+     * @return $dockGoods <dock goods | 入库物品清单>
+     */
     private function getDockGoodsData(string $category = 'principal_food')
     {
         $dockGoodsData = config('goodscategorys.goods');
