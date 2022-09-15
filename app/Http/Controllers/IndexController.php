@@ -309,6 +309,14 @@ class IndexController extends Controller
         return $dockGoods;
     }
 
+    /**
+     * Get Monitoring Goods Data.
+     * 获取监控物品数据
+     * 
+     * @param int $userId <user Id | 用户Id>
+     * 
+     * @return $monitoringGoods <monitoring goods data | 监控物品数据>
+     */
     private function getMonitoringGoodsData($userId)
     {
         $columnName = [
