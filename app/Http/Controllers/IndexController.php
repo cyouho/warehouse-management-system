@@ -315,7 +315,7 @@ class IndexController extends Controller
      * 
      * @param int $userId <user Id | 用户Id>
      * 
-     * @return $monitoringGoods <monitoring goods data | 监控物品数据>
+     * @return array $monitoringGoods <monitoring goods data | 监控物品数据>
      */
     private function getMonitoringGoodsData($userId)
     {
