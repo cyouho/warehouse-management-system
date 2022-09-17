@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Goods Model
+ * 物品用模型
+ */
 class Goods extends Model
 {
     use HasFactory;
