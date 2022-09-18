@@ -14,6 +14,10 @@ class Goods extends Model
 {
     use HasFactory;
 
+    /**
+     * principal_food Tabal Name.
+     * 主食品数据库表名
+     */
     const PRINCIPAL_FOOD_TABLE = 'principal_food';
     const SUBSIDIARY_FOOD_TABLE = 'subsidiary_food';
     const DRINK_TABLE = 'drink';
