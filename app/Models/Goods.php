@@ -15,10 +15,15 @@ class Goods extends Model
     use HasFactory;
 
     /**
-     * principal_food Tabal Name.
+     * principal_food Table Name.
      * 主食品数据库表名
      */
     const PRINCIPAL_FOOD_TABLE = 'principal_food';
+
+    /**
+     * subsidiary_food Table Name.
+     * 副食品数据库列表
+     */
     const SUBSIDIARY_FOOD_TABLE = 'subsidiary_food';
     const DRINK_TABLE = 'drink';
     const MEDICINE_TABLE = 'medicines';
