@@ -25,6 +25,11 @@ class Goods extends Model
      * 副食品数据库列表
      */
     const SUBSIDIARY_FOOD_TABLE = 'subsidiary_food';
+
+    /**
+     * drink Table Name.
+     * 饮品数据库表名
+     */
     const DRINK_TABLE = 'drink';
     const MEDICINE_TABLE = 'medicines';
     const DAILY_CHEMICAL_PRODUCTS = 'daily_chemical_products';
