@@ -31,6 +31,11 @@ class Goods extends Model
      * 饮品数据库表名
      */
     const DRINK_TABLE = 'drink';
+
+    /**
+     * medicin Table Name.
+     * 药品数据库表名
+     */
     const MEDICINE_TABLE = 'medicines';
     const DAILY_CHEMICAL_PRODUCTS = 'daily_chemical_products';
 
