@@ -37,6 +37,11 @@ class Goods extends Model
      * 药品数据库表名
      */
     const MEDICINE_TABLE = 'medicines';
+
+    /**
+     * daily_chemical_products Table Name.
+     * 日用(化)品数据库表名
+     */
     const DAILY_CHEMICAL_PRODUCTS = 'daily_chemical_products';
 
     public function getNearExpiredAndExpiredGoods(
