@@ -44,6 +44,16 @@ class Goods extends Model
      */
     const DAILY_CHEMICAL_PRODUCTS = 'daily_chemical_products';
 
+    /**
+     * Get Near Expired And Expired Goods.
+     * 获取临期和过期物品清单
+     * 
+     * @param array $columnName <DB column name | 数据库字段名>
+     * @param array $conditions <DB where conditions | 数据库 where 检索约束条件>
+     * @param array $conditonsForOr <DB where condtions if exists or | 如果存在 or 检索约束时>
+     * 
+     * @return mix function
+     */
     public function getNearExpiredAndExpiredGoods(
         array $columnName = ['*'],
         array $conditions = [],
