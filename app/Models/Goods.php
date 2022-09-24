@@ -62,6 +62,16 @@ class Goods extends Model
         return $this->selectGoods($columnName, $conditions, $conditionsForOr);
     }
 
+    /**
+     * Get Search Goods.
+     * 获取检索物品结果
+     * 
+     * @param array $columnName <DB column name | 数据库字段名>
+     * @param array $conditions <DB where conditions | 数据库 where 检索约束条件>
+     * @param array $conditonsForOr <DB where condtions if exists or | 如果存在 or 检索约束时>
+     * 
+     * @return mix function
+     */
     public function getSearchGoods(
         array $columnName = ['*'],
         array $conditions = [],
