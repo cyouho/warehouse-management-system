@@ -97,6 +97,15 @@ class Goods extends Model
         return $this->selectGoods($columnName, $conditions, $conditionsForOr);
     }
 
+    /**
+     * Get Goods.
+     * 设置物品
+     * 
+     * @param string $goodsCategory <goods category | 物品类别>
+     * @param array $setData <set data | 设置数据>
+     * 
+     * @return mix function
+     */
     public function setGoods(string $goodsCategory, array $setData = [])
     {
         return $this->insertGoods($goodsCategory, $setData);
