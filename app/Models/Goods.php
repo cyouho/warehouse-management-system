@@ -129,6 +129,13 @@ class Goods extends Model
         return $this->updateGoods($tableName, $updateData, $conditions);
     }
 
+    /**
+     * Delete Goods.
+     * 删除物品
+     * 
+     * @param string $tableName <BD table name | 数据库表名>
+     * @param array $conditions <DB where conditons | 数据库 where 约束条件>
+     */
     public function delGoods(string $tableName, array $conditions = [])
     {
         $this->deleteGoods($tableName, $conditions);
