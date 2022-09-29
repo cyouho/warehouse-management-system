@@ -141,6 +141,16 @@ class Goods extends Model
         $this->deleteGoods($tableName, $conditions);
     }
 
+    /**
+     * Checkout Goods.
+     * 检查物品
+     * 
+     * @param string $tableName <BD table name | 数据库表名>
+     * @param array $updateData <DB update data | 数据库所更新数据>
+     * @param array $conditions <DB where condition | 数据库 where 约束条件>
+     * 
+     * @return mix function
+     */
     public function checkoutGoods(
         string $tableName,
         array $updateData = [],
