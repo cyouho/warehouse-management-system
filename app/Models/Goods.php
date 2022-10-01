@@ -213,6 +213,15 @@ class Goods extends Model
         );
     }
 
+    /**
+     * Insert Goods.
+     * 插入物品
+     * 
+     * @param string $goodsCategory <goods category | 物品分类>
+     * @param array $setData <insert data | 插入的数据>
+     * 
+     * @return int $result <result | 结果>
+     */
     private function insertGoods(string $goodsCategory, array $setData = [])
     {
         $result = DB::table($goodsCategory)
