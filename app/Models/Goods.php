@@ -230,6 +230,13 @@ class Goods extends Model
         return $result;
     }
 
+    /**
+     * Delete Goods.
+     * 删除物品
+     * 
+     * @param string $tableName <DB table name | 数据库表名>
+     * @param array $conditions <DB where conditons | 数据库 where 约束条件>
+     */
     private function deleteGoods(string $tableName, array $conditions = [])
     {
         DB::table($tableName)
